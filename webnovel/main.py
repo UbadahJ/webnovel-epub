@@ -6,7 +6,7 @@ from webnovel.epub.epub import create_epub
 from webnovel.epub.models.book import EpubBook
 from webnovel.epub.models.chapter import EpubChapter
 from webnovel.models.book import Book
-from webnovel.models.downloader import Downloader
+from webnovel.api.downloader import Downloader
 
 console = Console()
 

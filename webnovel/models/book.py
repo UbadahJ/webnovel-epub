@@ -1,10 +1,10 @@
 import json
 from typing import Callable
 
-from requests_html import Element, HTMLSession, HTML
+from requests_html import HTMLSession, HTML
 
 from webnovel.models.chapter import Chapter
-from webnovel.models.downloader import Downloader
+from webnovel.api.downloader import Downloader
 
 
 class Book:
@@ -48,10 +48,4 @@ class Book:
                     chapter["isVip"] != 0)
             for volume in doc['volumeItems']
             for chapter in volume['chapterItems']
-        ]
-
-    def _extract_toc(self, el: Element) -> None:
-        self.chapters = [
-            Chapter(a.attrs['title'], list(a.absolute_links)[0], i, len(a.find('svg')) != 0)
-            for i, a in enumerate(el.find('a'), start=1)
         ]
